@@ -4,26 +4,26 @@ default_target: all
 CXX_FLAGS=-std=c++11
 
 all: circuit_graph.o circuitsolver.o iscas89_parser.o log.o solver.o
-	g++ -o solver main.cpp \
-	./src/circuit_graph.o ./src/circuitsolver.o ./src/iscas89_parser.o \
-	./src/log.o ./src/solver.o \
+	g++ -ggdb -o solver main.cpp \
+	./include/circuit_graph.o ./include/circuitsolver.o ./include/iscas89_parser.o \
+	./include/log.o ./include/solver.o \
 	${CXX_FLAGS}
 
 circuit_graph.o: 
-	g++ -o ./src/circuit_graph.o -c ./src/circuit_graph.cpp ${CXX_FLAGS}
+	g++ -ggdb -o ./include/circuit_graph.o -c ./include/circuit_graph.cpp ${CXX_FLAGS}
 
 circuitsolver.o :
-	g++ -o ./src/circuitsolver.o -c ./src/circuitsolver.cpp ${CXX_FLAGS}
+	g++ -ggdb -o ./include/circuitsolver.o -c ./include/circuitsolver.cpp ${CXX_FLAGS}
 
 iscas89_parser.o :
-	g++ -o ./src/iscas89_parser.o -c ./src/iscas89_parser.cpp ${CXX_FLAGS}
+	g++ -ggdb -o ./include/iscas89_parser.o -c ./include/iscas89_parser.cpp ${CXX_FLAGS}
 
 log.o :
-	g++ -o ./src/log.o -c ./src/log.cpp ${CXX_FLAGS}
+	g++ -ggdb -o ./include/log.o -c ./include/log.cpp ${CXX_FLAGS}
 
 solver.o :
-	g++ -o ./src/solver.o -c ./src/solver.cpp ${CXX_FLAGS}
+	g++ -ggdb -o ./include/solver.o -c ./include/solver.cpp ${CXX_FLAGS}
 
 clean:
 	rm -rf solver
-	rm -rf ./src/*.o
+	rm -rf ./include/*.o
