@@ -24,4 +24,6 @@ log.o :
 solver.o :
 	g++ -o ./src/solver.o -c ./src/solver.cpp ${CXX_FLAGS}
 
-
+clean:
+	rm -rf solver
+	rm -rf ./src/*.o
