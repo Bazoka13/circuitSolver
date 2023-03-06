@@ -3,7 +3,7 @@
 #include "include/Time.h"
 #include <string>
 #include <fstream>
-#include<time.h>
+#include <time.h>
 
 int main(int argc, char *argv[])
 {
