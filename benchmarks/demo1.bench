@@ -1,0 +1,14 @@
+INPUT(1)
+INPUT(2)
+INPUT(3)
+INPUT(4)
+OUTPUT(11)
+
+6 = nor(1,2)
+5 = or(1,2,3)
+7 = and(1,2,4)
+8 = not(5)
+9 = and(2,6,8)
+10 = nand(1,7,8)
+11 = xor(9,10)
+

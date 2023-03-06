@@ -1,0 +1,3 @@
+/uac/gds/zyshi21/studio/QuteSAT/build/CMakeFiles/test_solver.dir
+/uac/gds/zyshi21/studio/QuteSAT/build/CMakeFiles/edit_cache.dir
+/uac/gds/zyshi21/studio/QuteSAT/build/CMakeFiles/rebuild_cache.dir
