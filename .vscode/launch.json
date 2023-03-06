@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/solver",
             "args": [
-                "./tmp/test.bench"
+                "./tmp/ab34.bench"
             ],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
