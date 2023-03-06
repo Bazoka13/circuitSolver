@@ -147,7 +147,7 @@ public:
 		}
 	}
 
-private:
+public:
 	// We need to avoid relocations on element addition, hence deque
 	std::deque<Line> m_lines;
 	std::deque<Gate> m_gates;

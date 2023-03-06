@@ -131,14 +131,32 @@ int solver::watch_BCP(CircuitGraph &graph, int decision_line) {
   return 1;
 }
 void solver::show_result(CircuitGraph &graph, int dpll_result) {
+  // Stone: Modify outputs for debug 
   if (dpll_result) {
     std::cout << "SAT" << std::endl;
-    for (int i = 0; i < graph.get_lines().size(); i++) {
-      int line_name = graph.get_lines()[i].num_name;
+    // Print PO
+    std::cout << "===============" << std::endl;
+    for (auto pi: graph.m_inputs) {
+      int line_name = pi->num_name;
       if (line_name > 0) {
         std::cout << line_name << "  " << ls.at(line_name).assign << std::endl;
       }
     }
+
+    // Print PO
+    std::cout << "===============" << std::endl;
+    for (auto po: graph.m_outputs) {
+      int line_name = po->num_name;
+      if (line_name > 0) {
+        std::cout << line_name << "  " << ls.at(line_name).assign << std::endl;
+      }
+    }
+    // for (int i = 0; i < graph.get_lines().size(); i++) {
+    //   int line_name = graph.get_lines()[i].num_name;
+    //   if (line_name > 0) {
+    //     std::cout << line_name << "  " << ls.at(line_name).assign << std::endl;
+    //   }
+    // }
   } else {
     std::cout << "UNSAT" << std::endl;
   }
@@ -291,6 +309,7 @@ int solver::conflict_backtrack(int decision_line, CircuitGraph &graph, std::vect
     Line output_line(-abs(learnt_gate_num), true);
     graph.ensure_line(-abs(learnt_gate_num));
     Line *output = graph.add_learnt_output(-abs(learnt_gate_num));
+    // ls.at(output->num_name).assign = 0;  // Stone: Ensure PO = 1
     for (int i = 0; i < learnt_gate.size(); ++i) {
       // add input lines to graph
       m_learnt_inputs.push_back(graph.m_name_to_line.at(learnt_gate[i]));
