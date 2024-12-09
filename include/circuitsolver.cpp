@@ -93,8 +93,9 @@ void solver::struct_implication(Gate &gate, int gate_index) {
         // indirect implication
         watching_list[0][line_index_output].push_back(gate_index); // NOR's output watch value is 0
         watching_list[0][line_index_input0].push_back(gate_index); // NOR's input watch value is 0
-        break;
+        
       }
+      break;
     }
     case Gate::Type::Not: // NOT, dir_imp0 source gate is NULL
     {
